@@ -1,0 +1,88 @@
+---
+import TailwindIcon from './icons/Tailwind.astro';
+import AstroIcon from './icons/AstroIcon.astro';
+import WordPress from './icons/Wordpress.astro';
+import Java from './icons/Java.astro';
+
+const TAGS = {
+    ASTRO: {
+        name: "Astro",
+        class: "bg-black text-white",
+        icon: AstroIcon,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: TailwindIcon,
+    },
+    WORDPRESS: {
+        name: "WordPress",
+        class: "bg-black text-white",
+        icon: WordPress,
+    },
+    JAVA: {
+        name: "Java",
+        class: "bg-black text-white",
+        icon: Java,
+    },
+}
+
+const PROJECTS = [
+    {
+        title: 'Tesla Landing',
+        description: 'Desarrollé un proyecto clonando la página de Tesla, recreando su diseño y funcionalidades para practicar y mejorar mis habilidades de desarrollo web.',
+        link:'#',
+        github: '#',
+        image: '/Projects/tesla.webp',
+        tags: [TAGS.ASTRO, TAGS.TAILWIND],
+    },
+    {
+        title: 'Fantasy Landing',
+        description: 'Desarrollé un proyecto replicando la página Fantasy, enfocándome en recrear su interfaz y características para perfeccionar mis habilidades de desarrollo web.',
+        link:'#',
+        github: '#',
+        image: '/Projects/fantasy.webp',
+        tags: [TAGS.ASTRO, TAGS.TAILWIND],
+    },
+    {
+        title: 'SALUDINSUMOS',
+        description: 'Fui parte de la realización del proyecto SALUDINSUMOS, un sitio web para una empresa importadora de productos médicos, específicamente dispositivos médicos. Utilicé la plataforma WordPress para desarrollar el sitio web, brindando una solución robusta y fácil de administrar para la presentación de productos médicos e información de la empresa.',
+        link:'#',
+        github: '#',
+        image: '/Projects/saludinsumos.webp',
+        tags: [TAGS.WORDPRESS],
+    },
+    {
+        title: 'HEALTHY SHOP APP',
+        description: 'Desarrollé una aplicación de tienda virtual para venta de comida usando Java y Android Studio. La aplicación permite a los usuarios explorar productos, realizar pedidos y administrar su carrito de compras, brindando una experiencia intuitiva y fácil de usar.',
+        link:'#',
+        github: '#',
+        image: '/Projects/healthyApp.webp',
+        tags: [TAGS.JAVA],
+    },
+]
+---
+
+{
+    PROJECTS.map(({title, description, tags, image}) => (
+        <article class="mb-32">
+            <h3 class="text-3xl font-semibold text-yellow-200 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-4 flex-row mb-4">
+                {tags.map((tag) => (
+                    <li>
+                        <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-2 px-2 text-center items-center`}>
+                            <tag.icon class="size-6" />
+                            {tag.name}
+                        </span>     
+                    </li>
+                ))}
+            </ul>
+            <img 
+                class="rounded shadow-2xl shadow-white/10"
+                src={image} 
+                alt={`Captura de pantalla del proyecto ${image}`} 
+            />
+        </article> 
+    ))
+}
