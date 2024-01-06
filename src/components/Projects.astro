@@ -67,8 +67,8 @@ const PROJECTS = [
     PROJECTS.map(({title, description, tags, image}) => (
         <article class="mb-32">
             <h3 class="text-3xl font-semibold text-yellow-200 mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="flex gap-x-4 flex-row mb-4">
+            <p class="text-lg mb-4 text-pretty lg:w-auto w-72">{description}</p>
+            <ul class="flex gap-x-4 flex-row mb-4 ">
                 {tags.map((tag) => (
                     <li>
                         <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-2 px-2 text-center items-center`}>
@@ -79,7 +79,7 @@ const PROJECTS = [
                 ))}
             </ul>
             <img 
-                class="rounded shadow-2xl shadow-white/10"
+                class="rounded shadow-2xl shadow-white/10 w-[350px] lg:w-auto"
                 src={image} 
                 alt={`Captura de pantalla del proyecto ${image}`} 
             />
